@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحويل النص إلى النظام الثنائي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        h2 {
+            color: #0073e6;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 2px solid #0073e6;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #binaryOutput {
+            color: #0073e6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>تحويل النص إلى النظام الثنائي</h2>
+        <input type="text" id="textInput" placeholder="أدخل النص هنا">
+        <button onclick="convertToBinary()">تحويل</button>
+        <p>النظام الثنائي: <span id="binaryOutput"></span></p>
+    </div>
+
+    <script>
+        function convertToBinary() {
+            const text = document.getElementById("textInput").value;
+            let binaryOutput = '';
+            
+            for (let i = 0; i < text.length; i++) {
+                let binary = text.charCodeAt(i).toString(2);
+                binary = binary.padStart(8, '0'); // لضمان الحصول على 8 خانات
+                binaryOutput += binary + ' ';
+            }
+
+            document.getElementById("binaryOutput").textContent = binaryOutput.trim();
+        }
+    </script>
+</body>
+</html>
